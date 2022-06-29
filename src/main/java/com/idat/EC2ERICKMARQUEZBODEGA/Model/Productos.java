@@ -17,28 +17,31 @@ public class Productos {
     private Double precio;
     private Integer stock;
 
-    @OneToOne(mappedBy = "producto")
-    private Bodegas bodega;
+
+    @OneToMany(mappedBy = "productos")
+    private List<Bodegas> bodegas = new ArrayList<>();
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
-            name = "productosClientes",
+            name = "productos_clientes",
             joinColumns = @JoinColumn(
-                    name = "idProducto",
+                    name = "id_producto",
                     nullable = false,
                     unique = true,
                     foreignKey = @ForeignKey(foreignKeyDefinition =
-                            "foreign key (idProducto) references productos(idProducto)")
+                            "foreign key (id_producto) references productos(id_producto)")
             ),
             inverseJoinColumns = @JoinColumn(
-                    name = "idCliente",
+                    name = "id_cliente",
                     nullable = false,
                     unique = true,
                     foreignKey = @ForeignKey(foreignKeyDefinition =
-                            "foreign key (idCliente) references clientes(idCliente)")
+                            "foreign key (id_cliente) references clientes(id_cliente)")
             )
 
-    )	private List<Clientes> cliente = new ArrayList<>();
+    )
+
+    private List<Clientes> clientes = new ArrayList<>();
 
     public Integer getIdProducto() {
         return idProducto;
@@ -80,11 +83,5 @@ public class Productos {
         this.stock = stock;
     }
 
-    public Bodegas getBodega() {
-        return bodega;
-    }
 
-    public void setBodega(Bodegas bodega) {
-        this.bodega = bodega;
-    }
 }

@@ -11,14 +11,15 @@ public class Bodegas {
     private String nombre;
     private String direccion;
 
-    @OneToOne
-    @JoinColumn(
-            name = "idProducto",
-            nullable = false,
-            unique = true,
-            foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key (idProducto) references Productos(idProducto)")
-    )
-    private Productos producto;
+    @ManyToOne
+    @JoinColumn(name="id_producto", nullable = false, unique = true,
+    foreignKey = @ForeignKey(foreignKeyDefinition = "foreign key(id_producto) references productos(id_producto)"))
+
+    private Productos productos;
+
+
+
+
 
     public Integer getIdBodega() {
         return idBodega;
@@ -44,11 +45,5 @@ public class Bodegas {
         this.direccion = direccion;
     }
 
-    public Productos getProducto() {
-        return producto;
-    }
 
-    public void setProducto(Productos producto) {
-        this.producto = producto;
-    }
 }

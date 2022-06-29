@@ -17,7 +17,7 @@ public class Clientes {
     private String direccion;
     private Integer dni;
 
-    @ManyToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(mappedBy = "clientes", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Productos> productos = new ArrayList<>();
 
     public Integer getIdCliente() {
