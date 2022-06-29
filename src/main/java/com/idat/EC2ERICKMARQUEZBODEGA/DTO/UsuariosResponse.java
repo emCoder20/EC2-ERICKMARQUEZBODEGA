@@ -2,40 +2,23 @@ package com.idat.EC2ERICKMARQUEZBODEGA.DTO;
 
 public class UsuariosResponse {
 
-    private Integer idUsuario;
-    private String usuario;
-    private String password;
-    private String rol;
+    private String token;
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public String getToken() {
+        return token;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public UsuariosResponse(String token) {
+        super();
+        this.token = token;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
+    public UsuariosResponse() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 }
