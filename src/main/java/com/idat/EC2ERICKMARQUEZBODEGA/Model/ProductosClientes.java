@@ -31,7 +31,6 @@ public class ProductosClientes {
 }
 
 @Embeddable
-
 class ProductosClientesPK implements Serializable {
 
     /**
